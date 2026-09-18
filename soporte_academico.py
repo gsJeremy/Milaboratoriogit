@@ -2,6 +2,11 @@ def validar_codigo(codigo):
     return codigo.strip() != "" and len(codigo) >= 6
 
 
+def validar_tipo(tipo):
+    tipos_validos = ["matrícula", "pagos", "constancia", "plataforma", "otro"]
+    return tipo.lower() in tipos_validos
+
+
 def registrar_solicitud():
     codigo = input("Código del estudiante: ")
 
@@ -10,7 +15,14 @@ def registrar_solicitud():
         codigo = input("Código del estudiante: ")
 
     nombre = input("Nombre del estudiante: ")
+
     tipo = input("Tipo de consulta: ")
+
+    while not validar_tipo(tipo):
+        print("Tipo de consulta no válido.")
+        print("Opciones: matrícula, pagos, constancia, plataforma, otro")
+        tipo = input("Tipo de consulta: ")
+
     descripcion = input("Descripción: ")
 
     solicitud = {
