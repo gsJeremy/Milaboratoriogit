@@ -1,5 +1,9 @@
+def validar_texto_obligatorio(texto):
+    return texto.strip() != ""
+
+
 def validar_codigo(codigo):
-    return codigo.strip() != "" and len(codigo) >= 6
+    return validar_texto_obligatorio(codigo) and len(codigo) >= 6
 
 
 def validar_tipo(tipo):
@@ -31,6 +35,10 @@ def registrar_solicitud():
 
     nombre = input("Nombre del estudiante: ")
 
+    while not validar_texto_obligatorio(nombre):
+        print("El nombre no puede estar vacío.")
+        nombre = input("Nombre del estudiante: ")
+
     tipo = input("Tipo de consulta: ")
 
     while not validar_tipo(tipo):
@@ -39,6 +47,10 @@ def registrar_solicitud():
         tipo = input("Tipo de consulta: ")
 
     descripcion = input("Descripción: ")
+
+    while not validar_texto_obligatorio(descripcion):
+        print("La descripción no puede estar vacía.")
+        descripcion = input("Descripción: ")
 
     prioridad = asignar_prioridad(tipo)
 
