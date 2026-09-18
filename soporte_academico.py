@@ -54,7 +54,7 @@ def registrar_solicitud():
 
     prioridad = asignar_prioridad(tipo)
 
-    solicitud = {
+    return {
         "codigo": codigo,
         "nombre": nombre,
         "tipo": tipo,
@@ -62,16 +62,18 @@ def registrar_solicitud():
         "prioridad": prioridad
     }
 
-    return solicitud
+
+def mostrar_resumen(solicitud):
+    print("\n--- RESUMEN DE LA SOLICITUD ---")
+    print("Código:", solicitud["codigo"])
+    print("Nombre:", solicitud["nombre"])
+    print("Tipo:", solicitud["tipo"])
+    print("Descripción:", solicitud["descripcion"])
+    print("Prioridad:", solicitud["prioridad"])
 
 
 mostrar_menu()
 
 solicitud = registrar_solicitud()
 
-print("\n--- SOLICITUD REGISTRADA ---")
-print("Código:", solicitud["codigo"])
-print("Nombre:", solicitud["nombre"])
-print("Tipo:", solicitud["tipo"])
-print("Descripción:", solicitud["descripcion"])
-print("Prioridad:", solicitud["prioridad"])
+mostrar_resumen(solicitud)
