@@ -1,5 +1,14 @@
+def validar_codigo(codigo):
+    return codigo.strip() != "" and len(codigo) >= 6
+
+
 def registrar_solicitud():
     codigo = input("Código del estudiante: ")
+
+    while not validar_codigo(codigo):
+        print("El código debe tener al menos 6 caracteres y no puede estar vacío.")
+        codigo = input("Código del estudiante: ")
+
     nombre = input("Nombre del estudiante: ")
     tipo = input("Tipo de consulta: ")
     descripcion = input("Descripción: ")
