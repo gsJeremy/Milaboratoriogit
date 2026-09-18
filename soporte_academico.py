@@ -7,6 +7,15 @@ def validar_tipo(tipo):
     return tipo.lower() in tipos_validos
 
 
+def asignar_prioridad(tipo):
+    if tipo.lower() == "plataforma" or tipo.lower() == "matrícula":
+        return "Alta"
+    elif tipo.lower() == "pagos":
+        return "Media"
+    else:
+        return "Baja"
+
+
 def mostrar_menu():
     print("\n===== SOPORTE ACADÉMICO =====")
     print("1. Registrar solicitud")
@@ -31,11 +40,14 @@ def registrar_solicitud():
 
     descripcion = input("Descripción: ")
 
+    prioridad = asignar_prioridad(tipo)
+
     solicitud = {
         "codigo": codigo,
         "nombre": nombre,
         "tipo": tipo,
-        "descripcion": descripcion
+        "descripcion": descripcion,
+        "prioridad": prioridad
     }
 
     return solicitud
@@ -50,3 +62,4 @@ print("Código:", solicitud["codigo"])
 print("Nombre:", solicitud["nombre"])
 print("Tipo:", solicitud["tipo"])
 print("Descripción:", solicitud["descripcion"])
+print("Prioridad:", solicitud["prioridad"])
