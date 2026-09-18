@@ -7,6 +7,12 @@ def validar_tipo(tipo):
     return tipo.lower() in tipos_validos
 
 
+def mostrar_menu():
+    print("\n===== SOPORTE ACADÉMICO =====")
+    print("1. Registrar solicitud")
+    print("2. Salir")
+
+
 def registrar_solicitud():
     codigo = input("Código del estudiante: ")
 
@@ -34,6 +40,8 @@ def registrar_solicitud():
 
     return solicitud
 
+
+mostrar_menu()
 
 solicitud = registrar_solicitud()
 
